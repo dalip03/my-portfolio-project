@@ -1,65 +1,101 @@
-import Image from "next/image";
+import About from "./components/About";
+import DraggableShowcase from "./components/DraggableShowcase";
+import Hero from "./components/Hero";
+import ProcessSection from "./components/ProcessSection";
+import FeaturedProject from "./components/ProjectCard";
+import ProjectCard from "./components/ProjectCard";
+import ScrollHorizontalShowcase from "./components/ScrollHorizontalShowcase";
+import SkillsSection from "./components/SkillsSection";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      <Hero />
+      <div className="h-[20vh] bg-gradient-to-b from-transparent to-[#0A0A0F]" />
+
+      <About />
+            <SkillsSection />
+
+      <section className="bg-[#0A0A0F] py-32">
+        <div className="px-6 mb-20">
+          <h2 className="text-[clamp(40px,6vw,80px)] font-bold text-white">
+            Selected Work
+          </h2>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+        <ScrollHorizontalShowcase>
+          <div className="min-w-screen flex items-center">
+            <FeaturedProject
+              index={1}
+              title="InsurBe"
+              description="A scalable insurance dashboard platform with user authentication and policy management."
+              tech="Next.js · Spring Boot · PostgreSQL"
+              role="Full Stack Developer"
+              highlights={[
+                "Authentication system",
+                "Admin dashboard",
+                "Dynamic policy management",
+              ]}
+              image="/projects_assets/insurbe.png"
+              liveUrl="https://insurbe.com"
+              githubUrl="https://github.com/yourrepo"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+          </div>
+
+          <div className="min-w-screen flex items-center">
+            <FeaturedProject
+              index={2}
+              title="EarnMyMoney"
+              description="Interactive reward-based gaming ecosystem with leaderboard and referrals."
+              tech="Next.js · Tailwind · API Integration"
+              role="Frontend + API Integration"
+              highlights={[
+                "Leaderboard ranking",
+                "Referral tracking",
+                "Tier-based rewards",
+              ]}
+              image="/projects_assets/playwin.png"
+              liveUrl="https://dev.earnmymoney.com/en"
+            />
+          </div>
+
+          <div className="min-w-screen flex items-center">
+            <FeaturedProject
+              index={2}
+              title="Peeralgo"
+              description="A scalable mentorship platform connecting students with industry experts for personalized guidance and career development."
+              tech="Next.js · Tailwind · API Integration"
+              role="Frontend + API Integration"
+              highlights={[
+                "Leaderboard ranking",
+                "Referral tracking",
+                "Tier-based rewards",
+              ]}
+              image="/projects_assets/peeralgo.png"
+              liveUrl="https://peeralgo-dalip03s-projects.vercel.app/"
+            />
+          </div>
+
+          <div className="min-w-screen flex items-center">
+            <FeaturedProject
+              index={2}
+              title="lexbolt"
+              description="AI-driven insights that decode regulations, accelerate validation, and keep your designs compliant from concept to production, and new regulations updated for engineering and homologation."
+              tech="Next.js · Tailwind · API Integration"
+              role="Frontend + API Integration"
+              highlights={[
+                "Leaderboard ranking",
+                "Referral tracking",
+                "Tier-based rewards",
+              ]}
+              image="/projects_assets/lexbolt.png"
+              liveUrl="https://lexboltt.vercel.app/"
+            />
+          </div>
+        </ScrollHorizontalShowcase>
+      </section>
+            <ProcessSection />
+
+    </main>
   );
 }

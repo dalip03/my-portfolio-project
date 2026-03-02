@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "./components/SmoothScroll";
+import MouseGlow from "./components/MouseGlow";
+import CustomCursor from "./components/CustomCursor";
+import Loader from "./components/Loader";
+import PageReveal from "./components/PageReveal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,9 +30,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased relative `}
       >
-        {children}
+        <Loader />
+        <PageReveal />
+        <CustomCursor />
+        {/* <MouseGlow /> */}
+        <div className="grid-overlay" />
+        <div className="noise-overlay" />
+        <SmoothScroll> {children}</SmoothScroll>
       </body>
     </html>
   );
